@@ -1,41 +1,39 @@
-saltstates makina tree
-===========================
+MakinaCorpus salt states project templates collection
+=============================================================
 
-Prerequisite
-----------------
-Install those packages::
+.. contents::
 
-    apt-get install -y build-essential m4 libtool pkg-config autoconf gettext bzip2 groff man-db automake libsigc++-2.0-dev tcl8.5
-    apt-get install git python-dev swig libssl-dev libzmq-dev
+This repository contains pair collections of:
 
+    - A project around a technology (plone, django, drupal, etc)
+    - A salt stack state tree to install this project
 
-Install mastersalt
-----------------------
-Be sure that the FQDN for the top master salt machine is 'mastersalt.makina-corpus.net' before runninig the base hightstate call
+The naming scheme is:
 
-Create the salt top & develop code::
+    - :PROJECTNAME-project: : the project
+    - :PROJECTNAME-salt: : the saltstack states tree
 
-    mkdir /srv/
-    git clone git@gitorious.makina-corpus.net:makinacorpus/salt-admin-pillar.git /srv/pillar
-    git clone git@gitorious.makina-corpus.net:makinacorpus/salt-admin.git /srv/salt
+Use
+====
+Optionnaly edit pillar::
 
-Run the install buildout::
-
-    cd /srv/salt
-    python bootstrap.py
-    bin/buildout
-
-Install the base salt states infastructure::
-
-    /srv/salt/makina-states/bin/salt-call state.highstate --local -ldebug
-
-Accept both on local and master salt daemons the minion key::
-
-    mastersalt-key -A
-    salt-key -A
+    mkdir /srv/pillar
+    touch /srv/pillar/top.sls
 
 
-Install a new salt-managed box
--------------------------------
-See the makina-states repository's Readme instruction
+Three environment variable may change the behavior of the bootstrap script:
+
+    - :PROJECT_URL: : Your project url
+    - :PROJECT_BRANCH: : The salt stack states tree branch in your repo
+
+Install the project::
+
+    export PROJECT_URL=https://github.com/makinacorpus/salt-project PROJECT_BRANCH=bash
+    wget http://raw.github.com/makinacorpus/makina-states/master/_scripts/boot-salt.sh -O - | bash
+
+
+Collection
+================
+
+    - :sample: : The most basic bash based project example
 
