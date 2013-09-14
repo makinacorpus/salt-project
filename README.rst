@@ -10,8 +10,8 @@ This repository contains pair collections of:
 
 The naming scheme is:
 
-    - :PROJECTNAME-project: the project
-    - :PROJECTNAME-salt: the saltstack states tree
+    :PROJECTNAME-project: the project
+    :PROJECTNAME-salt: the saltstack states tree
 
 Use
 ====
@@ -23,8 +23,8 @@ Optionnaly edit pillar::
 
 Three environment variable may change the behavior of the bootstrap script:
 
-    - :PROJECT_URL: Your project url
-    - :PROJECT_BRANCH: The salt stack states tree branch in your repo
+    :PROJECT_URL: Your project url
+    :PROJECT_BRANCH: The salt stack states tree branch in your repo
 
 Install the project::
 
@@ -35,5 +35,5 @@ Install the project::
 Collection
 ================
 
-    - :sample: The most basic bash based project example
+    :sample: The most basic bash based project example
 
