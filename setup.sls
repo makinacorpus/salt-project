@@ -1,4 +1,4 @@
-{% import "config.sls" as c with context %}
+{% import "makina-projects/ckan/config.sls" as c with context %}
 
 # bootstrap the minimum for salt
 include:

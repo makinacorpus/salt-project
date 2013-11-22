@@ -1,5 +1,5 @@
 
 base:
   '*':
-    - core
+    - makina-projects.ckan.core
 
