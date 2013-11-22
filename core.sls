@@ -9,7 +9,7 @@ checkout-code:
 # run project
 run-project:
   cmd.run:
-    - name: /data/project/project.sh
+    - name: /srv/projects/ckan/project/project.sh
     - require:
       - git: checkout-code
 

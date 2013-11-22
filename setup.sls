@@ -2,7 +2,7 @@
 
 # bootstrap the minimum for salt
 include:
-    - makina-states.setup
+    - setup
 
 # keep the project saltstack tree up to date
 checkout-salt:
@@ -12,7 +12,7 @@ checkout-salt:
     - rev: origin/{{c.n}}-salt
     - require:
 # be sure to have code updated before salt master restart
-        - git: salt-git
+      - git: salt-git
 
 # copy our local git tree to save bandwidth
 checkout-code:
