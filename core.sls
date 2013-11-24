@@ -1,6 +1,6 @@
 {% import "makina-projects/ckan/config.sls" as c with context %}
 # keep project code up to date
-checkout-project:
+{{c.n}}-checkout-project:
   cmd.run:
     - name: |
             if [[ ! -d "{{c.p}}/.git" ]];then
@@ -15,8 +15,8 @@ checkout-project:
             exit 0
 
 # run project
-run-project:
+{{c.n}}-run-project:
   cmd.run:
     - name: {{c.p}}/project.sh
     - require:
-      - cmd: checkout-project
+      - cmd: {{c.n}}-checkout-project
