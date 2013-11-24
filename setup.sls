@@ -6,13 +6,24 @@ include:
 
 # keep the project saltstack tree up to date
 checkout-salt:
-  git.latest:
-    - name: {{c.url}}
-    - target: {{c.s}}
-    - rev: origin/{{c.n}}-salt
+  cmd.run:
+    - name: |
+            branch="$(git symbolic-ref -q --short HEAD)";
+            if [[ ! -d "{{c.s}}/.git" ]];then
+              git clone -b {{c.salt_branch}} {{c.url}} {{c.s}};
+            fi;
+            cd "{{c.s}}";
+            if [[ -z "$branch" ]];then
+                git checkout {{c.salt_branch}};
+            fi;
+            git pull origin {{c.salt_branch}};
+            exit 0
     - require:
-# be sure to have code updated before salt master restart
       - git: salt-git
+    - require_in:
+      - cmd: salt-dirs-perms
+
+# be sure to have code updated before salt master restart
 
 # copy our local git tree to save bandwidth
 checkout-code:
@@ -20,9 +31,11 @@ checkout-code:
     - name: {{c.p}}
     - makedirs: true
     - require:
-      - git: checkout-salt
+      - cmd: checkout-salt
   cmd.run:
-    - name: rsync -az {{c.s}}/.git/ {{c.p}}/.git/
+    - name: rsync -az "{{c.s}}/.git/" "{{c.p}}/.git/"
     - require:
-      - git: checkout-salt
+      - cmd: checkout-salt
       - file: checkout-code
+    - require_in:
+      - cmd: salt-dirs-perms
