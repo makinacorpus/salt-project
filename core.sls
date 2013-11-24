@@ -1,5 +1,16 @@
 {% import "makina-projects/ckan/config.sls" as c with context %}
 # keep project code up to date
+{% set roles = pillar.get('makina.roles', [] %}
+{% if roles == [] %}
+{% endif %}
+
+include:
+  {% if 'db' in roles or roles == []%}- makina-states.services.postgresql{% endif %}
+
+# makina-states.services.postgresql will provide states to attach to:
+#  - ckan-makina-postgresql-database
+#  - ckan-makina-postgresql-user
+
 {{c.n}}-checkout-project:
   cmd.run:
     - name: |
@@ -20,3 +31,5 @@
     - name: {{c.p}}/project.sh
     - require:
       - cmd: {{c.n}}-checkout-project
+
+
