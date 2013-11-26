@@ -1,11 +1,16 @@
 {% import "makina-projects/ckan/config.sls" as c with context %}
 # keep project code up to date
+{% set includes=[] %}
 {% set roles = pillar.get('makina.roles', [] %}
-{% if roles == [] %}
+{% if 'db' in roles or roles == [] %}
+{% set dummy=includes.append('makina-projects.ckan.db')%}
 {% endif %}
 
+{% if includes %}
 include:
-  {% if 'db' in roles or roles == []%}- makina-states.services.postgresql{% endif %}
+  {% for i in includes %}- {{i}}
+  {% endfor %}
+{% endif %}
 
 # makina-states.services.postgresql will provide states to attach to:
 #  - ckan-makina-postgresql-database
