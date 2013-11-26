@@ -1,7 +1,7 @@
-{% import "makina-projects/ckan/config.sls" as c with context %}
+{% import "makina-projects/ckan/_macros/config.jinja" as c with context %}
 {% import "makina-states/services/db/postgresql.sls" as pgsql with context %}
 {{ pgsql.postgresql_base() }}
-{% for name, dbdata in c.ckanData['dbs'].items() %}
+{% for name, dbdata in c.data['dbs'].items() %}
 {% set db_name = dbdata['db_name'] %}
 {% set db_tablespace = dbdata['db_tablespace'] %}
 {% set db_user = dbdata['db_user'] %}

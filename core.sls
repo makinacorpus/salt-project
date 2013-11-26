@@ -1,9 +1,9 @@
-{% import "makina-projects/ckan/config.sls" as c with context %}
+{% import "makina-projects/ckan/_macros/config.jinja" as c with context %}
 # keep project code up to date
 {% set includes=[] %}
-{% set roles = pillar.get('makina.roles', [] %}
+{% set roles = pillar.get('makina.roles', []) %}
 {% if 'db' in roles or roles == [] %}
-{% set dummy=includes.append('makina-projects.ckan.db')%}
+{% set dummy=includes.append('makina-projects.' + c.name +'.db')%}
 {% endif %}
 
 {% if includes %}
@@ -12,29 +12,26 @@ include:
   {% endfor %}
 {% endif %}
 
-# makina-states.services.postgresql will provide states to attach to:
-#  - ckan-makina-postgresql-database
-#  - ckan-makina-postgresql-user
-
-{{c.n}}-checkout-project:
+{{c.name}}-checkout-project:
   cmd.run:
     - name: |
-            if [[ ! -d "{{c.p}}/.git" ]];then
-              git clone -b {{c.project_branch}} {{c.url}} {{c.p}};
+            if [[ ! -d "{{c.project_root}}/.git" ]];then
+              git clone -b {{c.project_branch}} {{c.url}} {{c.project_root}};
             fi;
-            cd "{{c.p}}";
+            cd "{{c.project_root}}";
             branch="$(git symbolic-ref -q --short HEAD)";
             if [[ -z "$branch" ]];then
                 git checkout {{c.project_branch}};
             fi;
+            git branch --set-upstream-to=origin/{{c.project_branch}} {{c.project_branch}}
             git pull origin {{c.project_branch}};
             exit 0
 
 # run project
-{{c.n}}-run-project:
+{{c.name}}-run-project:
   cmd.run:
-    - name: {{c.p}}/project.sh
+    - name: {{c.project_root}}/project.sh
     - require:
-      - cmd: {{c.n}}-checkout-project
+      - cmd: {{c.name}}-checkout-project
 
 

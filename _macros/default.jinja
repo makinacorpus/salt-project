@@ -1,4 +1,4 @@
-# Ckan settings
+{% import  "makina-projects/ckan/_macros/metadata.jinja" as metadata with context %}
 {% set ckanStepOne = salt['grains.filter_by']({
     'dev': {
       'dbs' : {
@@ -26,7 +26,7 @@
   merge=ckanStepOne
 ) %}
 # FINAL STEP: merge with data from pillar
-{% set ckanData=salt['mc_utils.dictupdate'](
+{% set defaultsData=salt['mc_utils.dictupdate'](
   ckanStepTwo ,
-  salt['pillar.get']('ckan-default-settings',{})) %}
+  salt['pillar.get'](metadata.name+'-default-settings',{})) %}
 
