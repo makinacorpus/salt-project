@@ -4,6 +4,8 @@ saltstates makina tree
 .. contents::
 
 Salt states to install the bash project ckan
+USe
+===
 
 Install this project (as **root**)::
 
