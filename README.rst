@@ -15,6 +15,6 @@ Optionnaly edit pillar::
 
 Install this project (as **root**)::
 
-    export PROJECT_URL="https://github.com/makinacorpus/salt-project" PROJECT_BRANCH="ckan-salt"
+    export PROJECT_URL="https://github.com/makinacorpus/salt-project" PROJECT_BRANCH="ckan-salt "PROJECT_NAME="ckan-salt"
     wget http://raw.github.com/makinacorpus/makina-states/master/_scripts/boot-salt.sh -O - | bash
 
