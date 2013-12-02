@@ -1,8 +1,9 @@
+{% import "makina-states/_macros/salt.jinja" as saltmac with context %}
 {% import "makina-projects/ckan/_macros/config.jinja" as c with context %}
 
 # bootstrap the minimum for salt
 include:
-    - makina-states.setups.salt
+  - makina-states.setups.salt
 
 # keep the project saltstack tree up to date
 {{c.name}}-checkout-salt:
@@ -35,8 +36,22 @@ include:
       - cmd: {{c.name}}-checkout-salt
   cmd.run:
     - name: rsync -az --exclude="refs/heads/*" "{{c.salt_root}}/.git/" "{{c.project_root}}/.git/"
+    - unless: test -d "{{c.project_root}}/.git/"
     - require:
       - cmd: {{c.name}}-checkout-salt
       - file: {{c.name}}-checkout-code
     - require_in:
       - cmd: salt-dirs-perms
+
+{{c.name}}-perms:
+  cmd.script:
+    - source: {{saltmac.resetperms}}
+    - template: jinja
+    - dmode: 2770
+    - fmode: 0770
+    - reset_user: ckan
+    - reset_group: "{{saltmac.group}}"
+    - reset_paths:
+      - {{c.project_root}}
+    - require:
+      - cmd: {{c.name}}-checkout-code

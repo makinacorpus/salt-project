@@ -2,9 +2,12 @@
 # keep project code up to date
 {% set includes=[] %}
 {% set roles = pillar.get('makina.roles', []) %}
-{% if 'db' in roles or roles == [] %}
-{% set dummy=includes.append('makina-projects.' + c.name +'.db')%}
+{% set env = pillar.get('makina.env', None) %}
+{% for role in ['db', 'solr', 'ckan'] %}
+{% if role in roles or roles == [] %}
+{% set dummy=includes.append('makina-projects.' + c.name + '.' + role)%}
 {% endif %}
+{% endffor %}
 
 {% if includes %}
 include:
@@ -27,11 +30,12 @@ include:
             git pull origin {{c.project_branch}};
             exit 0
 
-# run project
-{{c.name}}-run-project:
-  cmd.run:
-    - name: {{c.project_root}}/project.sh
-    - require:
-      - cmd: {{c.name}}-checkout-project
+{#
+{% if env == 'prod' %}
+ckan-buildoutsettings-prod:
+  file.managed:
+    - name: {{c.project_root}}/etc/settings-prod.cfg
+    - source: salt://{{c.{{c.project_root}}/etc/settings-prod.cfg
+    {% endif %}
 
-
+#}
