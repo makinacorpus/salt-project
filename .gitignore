@@ -1,0 +1,7 @@
+src
+.buildout/
+.installed.cfg
+.mr.developer.cfg
+develop-eggs/
+eggs/
+bin
