@@ -1,7 +1,13 @@
 src
+.rnd
+.vim/
+.viminfo
+parts/
+random-data.bin
 .buildout/
 .installed.cfg
 .mr.developer.cfg
 develop-eggs/
 eggs/
+etc/settings-local.cfg
 bin
