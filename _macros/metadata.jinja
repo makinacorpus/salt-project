@@ -1,4 +1,4 @@
-{% set default_env = salt['grains.get']('default_env', dev) %}
+{% set default_env = salt['grains.get']('default_env', 'dev') %}
 {% set name = 'ckan' %}
 {% set root = '/srv/projects' %}
 {% set salt_root = root + '/' + name + '/salt' %}
