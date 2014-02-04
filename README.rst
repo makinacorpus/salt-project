@@ -10,18 +10,28 @@ This repository contains pair collections of:
 
 The naming scheme is:
 
-    :PROJECTNAME-project: the project
-    :PROJECTNAME-salt: the saltstack states tree
+    PROJECTNAME-project
+        the project
+
+    PROJECTNAME-salt
+        the saltstack states tree
 
 Use
 ===
 
 Three environment variable may change the behavior of the bootstrap script:
 
-    :PROJECT_URL:      Your project url
-    :PROJECT_NAME:     Your project name
-    :PROJECT_BRANCH:   The saltstack states tree branch in your repo (default: salt)
-    :PROJECT_TOPSTATE: The salt state highstate to use (state.highstate as default)
+    PROJECT_URL
+
+        Your project url
+    PROJECT_NAME
+        Your project name
+
+    PROJECT_BRANCH
+        The saltstack states tree branch in your repo (default: salt)
+
+    PROJECT_TOPSTATE
+        The salt state highstate to use (state.highstate as default)
 
 Install a project::
 
@@ -32,11 +42,20 @@ Install a project::
 Collection
 ================
 
-    :sample: (obsolete) The most basic bash based project example
-    :ckan: (obsolete) A ckan installation
-    :apache: A basic apache+vhost installation
-    :modphp: A basic modphp installation
-    :phpfpm: A basic phpfpm installation
+    sample
+        (obsolete) The most basic bash based project example
+
+    ckan
+        (obsolete) A ckan installation
+
+    apache
+        A basic apache+vhost installation
+
+    modphp
+        A basic modphp installation
+
+    phpfpm
+        A basic phpfpm installation
 
 
 TODO
@@ -44,5 +63,5 @@ TODO
 
     - backport zope generic into salt-project
     - backport lizmap into salt-project
-    
+
 
