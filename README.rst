@@ -10,27 +10,27 @@ This repository contains pair collections of:
 
 The naming scheme is:
 
-    PROJECTNAME-project
-        the project
+PROJECTNAME-project
+    the project
 
-    PROJECTNAME-salt
-        the saltstack states tree
+PROJECTNAME-salt
+    the saltstack states tree
 
 Use
 ===
 
 Three environment variable may change the behavior of the bootstrap script:
 
-    PROJECT_URL
+PROJECT_URL
+    Your project url
 
-        Your project url
-    PROJECT_NAME
-        Your project name
+PROJECT_NAME
+    Your project name
 
-    PROJECT_BRANCH
-        The saltstack states tree branch in your repo (default: salt)
+PROJECT_BRANCH
+    The saltstack states tree branch in your repo (default: salt)
 
-    PROJECT_TOPSTATE
+PROJECT_TOPSTATE
         The salt state highstate to use (state.highstate as default)
 
 Install a project::
@@ -41,21 +41,20 @@ Install a project::
 
 Collection
 ================
+sample
+    (obsolete) The most basic bash based project example
 
-    sample
-        (obsolete) The most basic bash based project example
+ckan
+    (obsolete) A ckan installation
 
-    ckan
-        (obsolete) A ckan installation
+apache
+    A basic apache+vhost installation
 
-    apache
-        A basic apache+vhost installation
+modphp
+    A basic modphp installation
 
-    modphp
-        A basic modphp installation
-
-    phpfpm
-        A basic phpfpm installation
+phpfpm
+    A basic phpfpm installation
 
 
 TODO
