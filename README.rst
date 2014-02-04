@@ -20,14 +20,8 @@ Three environment variable may change the behavior of the bootstrap script:
 
     :PROJECT_URL: Your project url
     :PROJECT_NAME: Your project name
-    :PROJECT_BRANCH: The salt stack states tree branch in your repo (default: salt)
+    :PROJECT_BRANCH: The saltstack states tree branch in your repo (default: salt)
     :PROJECT_TOPSTATE: The salt state highstate to use (state.highstate as default)
-    :SALT_BOOT: The makina-states bootstrap to use
-
-        - :SALT_BOOT="": salt is installed
-        - :SALT_BOOT="server":  install makina salt and requisites
-        - :SALT_BOOT="vm": install makina salt and requisites for a VM (lxc, virtualbox, etc)
-        - :SALT_BOOT="mastersalt":  install makina salt and requisites and also a mastersalt minion for mastersalt wiring
 
 Install a project::
 
@@ -45,7 +39,8 @@ Collection
     :phpfpm: A basic phpfpm installation
 
 
-TODO:
+TODO
+=======
 
     - backport zope generic into salt-project
     - backport lizmap into salt-project
