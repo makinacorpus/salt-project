@@ -40,4 +40,7 @@ Collection
 
     :sample: The most basic bash based project example
     :ckan: A ckan installation
+    :apache: A basic apache+vhost installation
+    :modphp: A basic modphp installation
+    :phpfpm: A basic phpfpm installation
 
