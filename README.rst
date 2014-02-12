@@ -1,66 +1,38 @@
-MakinaCorpus salt states project templates collection
-=============================================================
+MakinaCorpus salt Drupal project template
+=========================================
 
 .. contents::
 
-This repository contains pair collections of:
+Salt states to install infrastructure around a Drupal project using:
+   - MySQL/PostgreSQL
+   - Apache/Nginx
+   - php-fpm or mod_phpfpm (last one only available for Apache)
+   - drush
 
-    - A project around a technology (plone, django, drupal, etc)
-    - A salt stack state tree to install this project
-
-The naming scheme is:
-
-PROJECTNAME-project
-    the project
-
-PROJECTNAME-salt
-    the saltstack states tree
-
-Use
+USE
 ===
 
-Three environment variable may change the behavior of the bootstrap script:
+Install on a computer
+---------------------
 
-PROJECT_URL
-    Your project url
+Install this project (as **root**)::
+  
+  export PROJECT_URL="https://github.com/makinacorpus/salt-project.git"
+  export PROJECT_BRANCH="phpfpm-salt" PROJECT_NAME="drupal-apache-phpfpm-mysql-salt-project"
+  wget http://raw.github.com/makinacorpus/makina-states/master/_scripts/boot-salt.sh -O - | bash
 
-PROJECT_NAME
-    Your project name
-
-PROJECT_BRANCH
-    The saltstack states tree branch in your repo (default: salt)
-
-PROJECT_TOPSTATE
-        The salt state highstate to use (state.highstate as default)
-
-Install a project::
-
-    export PROJECT_URL=https://github.com/makinacorpus/salt-project PROJECT_NAME="<foo>" PROJECT_BRANCH="<foo-salt>"
-    wget http://raw.github.com/makinacorpus/makina-states/master/_scripts/boot-salt.sh -O - | bash
+Install on a development VM
+---------------------------
 
 
-Collection
-================
-sample
-    (obsolete) The most basic bash based project example
+Use as a template fro you project
+---------------------------------
 
-ckan
-    (obsolete) A ckan installation
-
-apache
-    A basic apache+vhost installation
-
-modphp
-    A basic modphp installation
-
-phpfpm
-    A basic phpfpm installation
-
+Use theses files as sources for the 'salt' branch of your project.
+This 'salt' branch is the base source of project deployment.
 
 TODO
 =======
 
-    - backport zope generic into salt-project
-    - backport lizmap into salt-project
 
 
