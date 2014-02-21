@@ -4,13 +4,13 @@ ckan-default-settings:
     default:
       db_password: {{password}}
 
-tomcat7-default-settings:
+makina-states.services.java.tomcat7:
   users:
     admin:
       password: {{password}}
       roles': ['admin', 'manager']
 
-solr4-default-settings:
+makina-states.services.java.solr4:
   dbs:
     default:
       db_password: {{password}}
