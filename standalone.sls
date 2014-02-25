@@ -39,14 +39,16 @@
                                project_branch='master', 
                                domain=domain,
                                domains=['otherdrupaldomain.bar.com'],
+                               profile='standard'
                                use_nginx=False,
                                use_apache=True,
                                use_htaccess=False,
                                use_phpfpm=True,
                                use_mysql=True,
                                use_postgresql=False,
-                               full=full
-                               init=init) }}
+                               full=full,
+                               init=init,
+                               make=make) }}
 {% endmacro %}
 {# ------- RUN! --------------------#}
 {{ do(full=False, init=False) }}
