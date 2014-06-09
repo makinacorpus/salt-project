@@ -25,7 +25,7 @@ Collection
 `django <https://github.com/makinacorpus/salt-project/tree/django>`_
     A basic django installation    
     
-`tilestream <https://github.com/makinacorpus/salt-project/tree/tilestream>`_
+`tilestream <https://github.com/makinacorpus/salt-project/tree/tilestream>`_ / *nodejs*
     A basic tilestream ( *nodejs* ) installation 
 
 ckan
