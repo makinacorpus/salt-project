@@ -21,6 +21,9 @@ lizmap
     
 flask
     A basic flask installation
+    
+django
+    A basic django installation
 
 ckan
     (obsolete) A ckan installation
