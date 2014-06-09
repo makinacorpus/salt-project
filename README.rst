@@ -23,7 +23,10 @@ Collection
     A basic flask installation
     
 `django <https://github.com/makinacorpus/salt-project/tree/django>`_
-    A basic django installation
+    A basic django installation    
+    
+`tilestream <https://github.com/makinacorpus/salt-project/tree/tilestream>`_
+    A basic tilestream (nodejs) installation
 
 ckan
     (obsolete) A ckan installation
