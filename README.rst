@@ -26,7 +26,7 @@ Collection
     A basic django installation    
     
 `tilestream <https://github.com/makinacorpus/salt-project/tree/tilestream>`_
-    A basic tilestream (nodejs) installation
+    A basic tilestream (*nodejs*) installation
 
 ckan
     (obsolete) A ckan installation
