@@ -12,29 +12,13 @@ read the project README
 
 Collection
 ================
-sample
-    (obsolete) The most basic bash based project example
 
 zope
     zope deployment
     
+lizmap
+    A basic lizmap installation with qgist server & ftp uploads
+
 ckan
     (obsolete) A ckan installation
-
-apache
-    A basic apache+vhost installation
-
-modphp
-    A basic modphp installation
-
-phpfpm
-    A basic phpfpm installation
-
-
-TODO
-=======
-
-    - backport zope generic into salt-project
-    - backport lizmap into salt-project
-
 
