@@ -13,16 +13,16 @@ read the project README
 Collection
 ================
 
-zope
+`zope <https://github.com/makinacorpus/salt-project/tree/zope>`_
     zope deployment
     
-lizmap
+`lizmap <https://github.com/makinacorpus/salt-project/tree/lizmap>`_
     A basic lizmap installation with qgist server & ftp uploads
     
-flask
+`flask <https://github.com/makinacorpus/salt-project/tree/flask>`_
     A basic flask installation
     
-django
+`django <https://github.com/makinacorpus/salt-project/tree/django>`_
     A basic django installation
 
 ckan
