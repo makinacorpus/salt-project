@@ -18,6 +18,9 @@ zope
     
 lizmap
     A basic lizmap installation with qgist server & ftp uploads
+    
+flask
+    A basic flask installation
 
 ckan
     (obsolete) A ckan installation
