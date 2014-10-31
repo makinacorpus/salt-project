@@ -35,15 +35,6 @@ makina-projects.projectname:
     ftp_root: "{rftp_root}/{name}"
     qgis_sock: "{name}.qgis.sock"
     fpm_sock: "{name}.fpm.sock"
-    php_path:
-      - "../cmd.php"
-      - "../application.init.php"
-      - "{project_root}/cache"
-      - "{project_root}/ftp"
-      - "{project_root}/webapp/lizmap/www"
-      - "{project_root}/webapp/lizmap"
-      - "{project_root}/webapp/lib"
-      - "{project_root}/webapp/"
     apache_vhost:
       vh_in_template_source: "salt://makina-projects/{name}/files/in_virtualhost.conf"
       qgis_sock: "{qgis_sock}"
@@ -51,8 +42,22 @@ makina-projects.projectname:
       allowed_files: "update.php|index.php|install.php|xmlrpc.php|cron.php"
     fpmpool:
       socket_name: "{fpm_sock}"
-      open_basedir: "{php_path}"
-      include_path: "{php_path}"
+      open_basedir:
+        - "../cmd.php"
+        - "{project_root}/cache"
+        - "{project_root}/ftp"
+        - "/srv/ftp/lizmap/{name}"
+        - "{project_root}/webapp/lizmap/www"
+        - "{project_root}/webapp/lizmap"
+        - "{project_root}/webapp/lib"
+        - "{project_root}/webapp/"
+      include_path:
+        - "../cmd.php"
+        - "../application.init.php"
+        - "{project_root}/webapp/lizmap/www"
+        - "{project_root}/webapp/lizmap"
+        - "{project_root}/webapp/lib"
+        - "{project_root}/webapp/"
       session_auto_start: 0
       allow_url_fopen: 1
       upload_max_filesize: "100M"
