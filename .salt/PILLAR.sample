@@ -15,6 +15,7 @@ makina-projects.projectname:
   data:
     domain: "www.{name}.loc"
     git: https://github.com/makinacorpus/lizmap-web-client.git
+    rev: master
     has_app: true
     has_db: true
     cron_periodicity: "*/10 * * * *"

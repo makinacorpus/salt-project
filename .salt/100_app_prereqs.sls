@@ -1,4 +1,5 @@
 {% set cfg = opts.ms_project %}
+{% set data = cfg.data %}
 {% if cfg.data.has_app %}
 {% set apacheSettings = salt['mc_apache.settings']() %}
 {% set sdata = salt['mc_utils.json_dump'](cfg) %}
@@ -20,6 +21,7 @@ prepreq-{{cfg.name}}:
   mc_git.latest:
     - name: {{cfg.data.git}}
     - target: {{cfg.project_root}}/webapp
+    - rev: {{data.rev}}
     - user: {{cfg.user}}
     - watch:
       - pkg: prepreq-{{cfg.name}}
