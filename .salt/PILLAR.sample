@@ -16,13 +16,13 @@ makina-projects.projectname:
     domain: "www.{name}.loc"
     git: https://github.com/makinacorpus/lizmap-web-client.git
     rev: master
-    has_app: true
-    has_db: true
     cron_periodicity: "*/10 * * * *"
     password: "secret"
     users:
       - lizmap_admin: {password: "{password}"}
     db:
+      host: "127.0.0.1"
+      port: "5432"
       password: "{password}"
       name: "{name}"
       user: "{name}"

@@ -1,6 +1,5 @@
 {% set cfg = opts.ms_project %}
 {% set data = cfg.data %}
-{% if cfg.data.has_app %}
 {% set apacheSettings = salt['mc_apache.settings']() %}
 {% set sdata = salt['mc_utils.json_dump'](cfg) %}
 include:
@@ -66,6 +65,3 @@ var-dirs-{{cfg.name}}:
     - watch:
       - file: {{cfg.name}}-lizmapwebclient-docroot-fcgi
 {% endfor %}
-{% else %}
-no-op: {mc_proxy.hook: []}
-{% endif %}

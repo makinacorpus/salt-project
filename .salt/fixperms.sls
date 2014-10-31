@@ -25,6 +25,8 @@
               --path "{{cfg.data.ftp_root}}"\
               {% for userdef in cfg.data.users%}{% for usr, udata in userdef.items() %} --users {{usr}}:rwx{% endfor%}{% endfor%}\
               --fmode 770 --dmode 770\
+              --users {{cfg.user}}:rwx\
+              --groups editor:rwx\
               --groups {{salt['mc_apache.settings']().httpd_user}}:rwx;
             "{{locs.resetperms}}" "${@}" -q\
               --dmode '0770' --fmode '0770'  \
